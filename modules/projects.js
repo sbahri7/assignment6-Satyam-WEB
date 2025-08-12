@@ -2,6 +2,7 @@ require('dotenv').config();
 require('pg');
 const { sequelize, Sector, Project } = require('../models'); 
 const Sequelize = require('sequelize'); 
+const mongoose = require('mongoose');
 
 function initialize() {
   return new Promise((resolve, reject) => {

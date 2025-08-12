@@ -1,4 +1,5 @@
 const { Sequelize } = require("sequelize");
+const mongoose = require('mongoose');
 // set up sequelize to point to our postgres database
 const sequelize = new Sequelize(process.env.PG_CONNECTION_STRING,
 {
