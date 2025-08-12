@@ -1,13 +1,18 @@
 const { Sequelize } = require("sequelize");
 const mongoose = require('mongoose');
+
+// Check if environment variable exists
+if (!process.env.PG_CONNECTION_STRING) {
+  throw new Error('PG_CONNECTION_STRING environment variable is not defined');
+}
+
 // set up sequelize to point to our postgres database
-const sequelize = new Sequelize(process.env.PG_CONNECTION_STRING,
-{
+const sequelize = new Sequelize(process.env.PG_CONNECTION_STRING, {
   dialect: "postgres",
   dialectOptions: {
     ssl: {
-      require: true, // This will help you connect to the database with SSL
-      rejectUnauthorized: false, // Allows self-signed certificates
+      require: true,
+      rejectUnauthorized: false,
     },
   },
 });
