@@ -1,6 +1,9 @@
 const { Sequelize } = require("sequelize");
 const mongoose = require('mongoose');
 
+console.log('Available env vars:', Object.keys(process.env));
+console.log('PG_CONNECTION_STRING:', process.env.PG_CONNECTION_STRING);
+
 // Check if environment variable exists
 if (!process.env.PG_CONNECTION_STRING) {
   throw new Error('PG_CONNECTION_STRING environment variable is not defined');
